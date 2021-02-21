@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 // functional components
 
-const PrimeraApp = ( {msg = "Mensaje x default"} ) => {
+const PrimeraApp = ( {msg = "Mensaje x default", mgsxDefecto} ) => {
 
 
     const saludo = 'Hola mundo';
@@ -26,10 +26,12 @@ const PrimeraApp = ( {msg = "Mensaje x default"} ) => {
 
         <>
             <h1> {msg} </h1>
+            <h1> {mgsxDefecto} </h1>
             <h1> {saludo} </h1>
             <p>{numeros}</p>
             <p>{ JSON.stringify(persona)}</p>
             <pre>{ JSON.stringify(persona, null, 3)}</pre>
+            
         </>
 
         
@@ -38,6 +40,10 @@ const PrimeraApp = ( {msg = "Mensaje x default"} ) => {
 
 PrimeraApp.propTypes = {
     msg: PropTypes.string.isRequired
+}
+
+PrimeraApp.defaultProps = {
+    mgsxDefecto:'msgxDefecto'
 }
 
 export default PrimeraApp;
