@@ -11,4 +11,4 @@ const divRoot = document.querySelector('#root');
 
 
 //ReactDOM.render(<PrimeraApp msg = "Esta es una comunicación entre components"  />, divRoot);
-ReactDOM.render(<CounterApp numero={123} />,divRoot );
+ReactDOM.render(<CounterApp numero={5} />,divRoot );

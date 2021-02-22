@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 // functional components
 
-const CounterApp= ( numero ) => {
+const CounterApp= ( {numero} ) => {
 
     /* const state = useState('Goku');
     console.log(state); */
@@ -19,12 +19,18 @@ const CounterApp= ( numero ) => {
          setCounter( counter + 1);
         // setCounter( c => c + 1);
     }
+    const handleReset = () => setCounter(numero);
+
+    const handleSubtract = () => setCounter(counter - 1);
+    
 
     return (
         <>
             <h1>CounterApp</h1>
             <h2>{counter}</h2>
             <button onClick={ e => handleAdd(e) }>+1</button>
+            <button onClick= {handleReset}>Reset</button>
+            <button onClick= {handleSubtract}>-1</button>
         </>
     );
 }
