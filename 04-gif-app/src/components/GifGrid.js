@@ -31,21 +31,23 @@ export const GifGrid = ({ category }) => {
     // getGifs();
 
     return (
-        <div>
+        <>
             <h3>{ category }</h3>
-            {/* <ol> */}
-                {
-                    /* images.map( gif => {
-                        return <li key={ gif.id }> { gif.title }</li>
-                    }) */
-                    /* images.map( ({id, title}) => <li key={ id }>{ title }</li> ) */
-                    images.map( img => 
-                        <GifGridItem 
-                            key={ img.id } 
-                            img={ img } 
-                        />
-                    )}
-            {/* </ol> */}
-        </div>
+            <div className="card-grid">
+                {/* <ol> */}
+                    {
+                        /* images.map( gif => {
+                            return <li key={ gif.id }> { gif.title }</li>
+                        }) */
+                        /* images.map( ({id, title}) => <li key={ id }>{ title }</li> ) */
+                        images.map( img => 
+                            <GifGridItem 
+                                key={ img.id } 
+                                img={ img } 
+                            />
+                        )}
+                {/* </ol> */}
+            </div>
+        </>
     )
 }
