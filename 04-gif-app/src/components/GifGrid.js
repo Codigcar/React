@@ -1,9 +1,10 @@
 // snippet - rafc
 import React, { useState, useEffect } from 'react'
+import { GifGridItem } from './GifGridItem';
 
 export const GifGrid = ({ category }) => {
 
-    const [count, setCount] = useState(0)
+    const [images, setImages] = useState([])
 
     useEffect(() => {
         getGifs();
@@ -23,7 +24,8 @@ export const GifGrid = ({ category }) => {
             }
         })
 
-        console.log(data);
+        // console.log(gifs);
+        setImages(gifs);
     }
 
     // getGifs();
@@ -31,8 +33,19 @@ export const GifGrid = ({ category }) => {
     return (
         <div>
             <h3>{ category }</h3>
-            <h3>{ count }</h3>
-            <button onClick={ () =>  setCount( count + 1 ) }>+</button>
+            {/* <ol> */}
+                {
+                    /* images.map( gif => {
+                        return <li key={ gif.id }> { gif.title }</li>
+                    }) */
+                    /* images.map( ({id, title}) => <li key={ id }>{ title }</li> ) */
+                    images.map( img => 
+                        <GifGridItem 
+                            key={ img.id } 
+                            img={ img } 
+                        />
+                    )}
+            {/* </ol> */}
         </div>
     )
 }
