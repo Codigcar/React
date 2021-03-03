@@ -1,6 +1,6 @@
 // rafc
-import React, { useState } from 'react'
-import { useCounter } from '../hooks/useCounter'
+import React from 'react'
+import { useCounter } from '../../hooks/useCounter'
 
 export const CounterwithCustomHook = () => {
 
