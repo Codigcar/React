@@ -10,14 +10,20 @@ export const SimpleForm = () => {
 
     const { name, email } = formState;
 
+    // puede usarse para escuchar cambios especificos en alguna parte dell State o app
+    // ejem: solo ejecuta useEffect cuando cambia el "name"
     useEffect(() => {
-       console.log('useEffect');
-    })
+       console.log('name cambió');
+    }, [name])
+
+    useEffect(() => {
+        console.log('email cambió');
+     }, [email])
 
     const handleInputChange = ( e ) => {
         // console.log(e.target);
         const { target } = e;
-        // console.log(target.name);
+        // console.log(target.value);
 
         setFormState({
             ...formState,
@@ -35,9 +41,19 @@ export const SimpleForm = () => {
                     type="text"
                     name="name"
                     className="form-control"
-                    placeholder="Nombre:"
+                    placeholder="nombre:"
                     autoComplete="off"
                     value={ name }
+                    onChange={ handleInputChange }
+                />
+
+                <input
+                    type="text"
+                    name="email"
+                    className="form-control"
+                    placeholder="mail@example.com:"
+                    autoComplete="off"
+                    value={ email }
                     onChange={ handleInputChange }
                 />
 
