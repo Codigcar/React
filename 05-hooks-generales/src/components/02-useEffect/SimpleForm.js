@@ -1,5 +1,6 @@
 // rafc
 import React, { useEffect, useState } from 'react'
+import { Message } from './Message';
 
 export const SimpleForm = () => {
 
@@ -14,17 +15,14 @@ export const SimpleForm = () => {
     // ejem: solo ejecuta useEffect cuando cambia el "name"
     useEffect(() => {
        console.log('name cambió');
-    }, [name])
+    }, [/* name */])
 
     useEffect(() => {
         console.log('email cambió');
-     }, [email])
+     }, [/* email */])
 
     const handleInputChange = ( e ) => {
-        // console.log(e.target);
         const { target } = e;
-        // console.log(target.value);
-
         setFormState({
             ...formState,
             [ target.name ]: target.value
@@ -56,8 +54,10 @@ export const SimpleForm = () => {
                     value={ email }
                     onChange={ handleInputChange }
                 />
-
             </div>
+
+            { (name === '123') && <Message />}
+            {/* { name === '123' ? <Message /> : null} */}
         </>
     )
 }
