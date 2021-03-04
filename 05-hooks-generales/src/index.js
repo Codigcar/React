@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { HookApp } from './HookApp';
+import { FormwithCustomHook } from './components/02-useEffect/FormWithCustomHook';
+// import { HookApp } from './HookApp';
 
 ReactDOM.render(
-    <HookApp />,
+    <FormwithCustomHook />,
   document.getElementById('root')
 );
 
