@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { MemoHookExample } from './components/06-memos/MemoHookExample';
+import { IntroReducer } from './components/08-useReducer/intro-reducer';
+// import { MemoHookExample } from './components/06-memos/MemoHookExample';
 // import { FormwithCustomHook } from './components/02-useEffect/FormWithCustomHook';
 // import { MultipleCustomHooks } from './components/03-examples/MultipleCustomHooks';
 // import { ExampleRef } from './components/04-useRef/ExampleRef';
@@ -8,7 +9,7 @@ import { MemoHookExample } from './components/06-memos/MemoHookExample';
 // import { HookApp } from './HookApp';
 
 ReactDOM.render(
-    <MemoHookExample />,
+    <IntroReducer />,
   document.getElementById('root')
 );
 
