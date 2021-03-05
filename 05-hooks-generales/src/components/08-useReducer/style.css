@@ -11,7 +11,7 @@ p {
     cursor:pointer
 }
 .complete {
-    text-decoration: line-through;
+    /* text-decoration: line-through; */
 }
 .boton-todo {
     display: block;
