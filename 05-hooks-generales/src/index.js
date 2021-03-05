@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { IntroReducer } from './components/08-useReducer/intro-reducer';
+import { TodoApp } from './components/08-useReducer/TodoApp_2';
+// import { IntroReducer } from './components/08-useReducer/intro-reducer';
 // import { MemoHookExample } from './components/06-memos/MemoHookExample';
 // import { FormwithCustomHook } from './components/02-useEffect/FormWithCustomHook';
 // import { MultipleCustomHooks } from './components/03-examples/MultipleCustomHooks';
@@ -9,7 +10,7 @@ import { IntroReducer } from './components/08-useReducer/intro-reducer';
 // import { HookApp } from './HookApp';
 
 ReactDOM.render(
-    <IntroReducer />,
+    <TodoApp />,
   document.getElementById('root')
 );
 
