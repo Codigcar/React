@@ -43,13 +43,28 @@ export const TodoApp = () => {
         };
 
         // action
-        const addTodo = {
+        const addTodoAction = {
             type:'add',
             payload: newTodo
         }
 
-        dispatch( addTodo );
+        dispatch( addTodoAction );
         reset();
+    }
+
+    const handleDelete = ( todoId ) => {
+        console.log(todoId);
+
+        // crear la action
+        const deleteTodoAction = {
+            type: 'delete',
+            payload: {
+                id: todoId
+            }
+        }
+
+        // dispatch
+        dispatch( deleteTodoAction );
     }
 
 
@@ -65,7 +80,7 @@ export const TodoApp = () => {
                             todos.map( (todo, i) => (
                                 <li key={todo.id} className="list-group-item">
                                     <p className="text-center complete"> { i + 1}. { todo.desc }</p>
-                                    <button className="btn btn-danger">Borrar</button>
+                                    <button className="btn btn-danger" onClick={ () => handleDelete( todo.id )}>Borrar</button>
                                 </li>
                             ))
                         }
