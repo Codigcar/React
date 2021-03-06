@@ -1,8 +1,8 @@
 import React, { useEffect, useReducer } from 'react'
 import { todoReducer } from './todoReducer_2';
 import './style.css';
-import { useForm } from '../../hooks/useForm';
 import { TodoList } from './TodoList_2';
+import { TodoAdd } from './TodoAdd-col-5';
 
 // const initialState = [{
 //     id: new Date().getTime(),
@@ -23,35 +23,34 @@ export const TodoApp = () => {
 
     const [ todos, dispatch ] = useReducer(todoReducer, [], init);
 
-    const [ { description }, handleInputChange, reset ] = useForm({description:''});
-    console.log(description);
+    
 
     useEffect(() => {
         localStorage.setItem('todos', JSON.stringify( todos ))
     }, [todos]);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    // const handleSubmit = (e) => {
+    //     // e.preventDefault();
 
-        if( description.trim().length <= 1 ){
-            return;
-        }
+    //     // if( description.trim().length <= 1 ){
+    //     //     return;
+    //     // }
 
-        const newTodo = {
-            id: new Date().getTime(),
-            desc: description,
-            done: false
-        };
+    //     const newTodo = {
+    //         id: new Date().getTime(),
+    //         desc: description,
+    //         done: false
+    //     };
 
-        // action
-        const addTodoAction = {
-            type:'add',
-            payload: newTodo
-        }
+    //     // action
+    //     // const addTodoAction = {
+    //     //     type:'add',
+    //     //     payload: newTodo
+    //     // }
 
-        dispatch( addTodoAction );
-        reset();
-    }
+    //     dispatch( addTodoAction );
+    //     reset();
+    // }
 
     const handleDelete = ( todoId ) => {
         console.log(todoId);
@@ -77,6 +76,16 @@ export const TodoApp = () => {
         });
     }
 
+    const handleAddTodo = ( newTodo ) => {
+        // action
+        const addTodoAction = {
+            type:'add',
+            payload: newTodo
+        }
+
+        dispatch( addTodoAction );
+    }
+
 
     return (
         <div>
@@ -85,18 +94,11 @@ export const TodoApp = () => {
 
             <div className="row">
                 <div className="col-7">
-                    {/* todos, handleDelete, handleToggle */}
                     < TodoList todos={ todos } handleDelete={ handleDelete } handleToggle={ handleToggle} />
                 </div>
 
                 <div className="col-5">
-                    <h4>Agregar TODO</h4>
-                    <hr />
-
-                    <form onSubmit={ handleSubmit }>
-                        <input value={ description } onChange={handleInputChange} className="form-control" type="text" name="description" placeholder="Aprender ...." autoComplete="off" />
-                        <button type="submit" className="btn btn-outline-primary mt-1 boton-todo"> Agregar </button>
-                    </form>
+                    <TodoAdd handleAddTodo={ handleAddTodo } />
                 </div>
             </div>
         </div>
