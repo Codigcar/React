@@ -3,8 +3,8 @@ import { UserContext } from './UserContext'
 
 export const HomeScreen = () => {
 
-    const userContext = useContext( UserContext );
-    console.log(userContext);
+    const { user } = useContext( UserContext );
+    console.log(user);
 
     return (
         <div>
