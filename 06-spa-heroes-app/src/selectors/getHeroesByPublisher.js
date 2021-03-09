@@ -1,4 +1,4 @@
-import { heroes } from "../data/heroesData";
+import { heroesData } from "../data/heroesData";
 
 export const getHeroesByPublisher = ( publisher ) => {
 
@@ -6,5 +6,5 @@ export const getHeroesByPublisher = ( publisher ) => {
     if( !validPublisher.includes( publisher )){
         throw new Error(`Publisher ${publisher} no es correcto`);
     }
-    return heroes.filter(hero => hero.publisher === publisher);
+    return heroesData.filter(hero => hero.publisher === publisher);
 }

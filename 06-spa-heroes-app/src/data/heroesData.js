@@ -1,4 +1,4 @@
-export const heroes = [
+export const heroesData = [
     {
         'id': 'dc-batman',
         'superhero':'Batman', 
