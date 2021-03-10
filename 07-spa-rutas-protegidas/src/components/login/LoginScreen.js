@@ -1,12 +1,24 @@
-import React from 'react'
+import React, {  useContext } from 'react'
+import { AuthContext } from '../../auth/AuthContext';
+import { types } from '../../types/types';
 
 export const LoginScreen = ({ history }) => {
 
+    const { dispatch } = useContext( AuthContext );
+
     const handleClick = () => {
         // Puede regresar a la pagina anterior
-        history.push('/');
+        // history.push('/');
         // No se puede regresar a la pagina anterior porque lo elimina
         // history.replace('/');
+
+        dispatch({
+            type: types.login,
+            payload: {
+                name:'Carlos'
+            }
+        })
+        history.push('/');
     }
 
     return (
