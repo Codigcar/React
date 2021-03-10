@@ -1,13 +1,16 @@
 import React, { useContext } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useHistory } from 'react-router-dom'
 import { AuthContext } from '../../auth/AuthContext';
 import { types } from '../../types/types';
 
-export const Navbar = ({  history }) => {
+export const Navbar = (/* {  history } */) => {
 
 
     const { user:{ name }, dispatch } = useContext( AuthContext );
     // console.log(name);
+
+    // No hay que proveerle un contexto ya que está el ReactRouter
+    const history = useHistory();
 
     const handleLogout = () => {
         history.replace('/login');

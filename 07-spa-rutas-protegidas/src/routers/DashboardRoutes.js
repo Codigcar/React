@@ -6,10 +6,10 @@ import { MarvelScreen } from '../components/marvel/MarvelScreen'
 import { SearchScreen } from '../components/search/SearchScreen'
 import { Navbar } from '../components/ui/Navbar'
 
-export const DashboardRoutes = ({ history }) => {
+export const DashboardRoutes = (/* { history } */) => {
     return (
         <>
-            <Navbar history={ history } />
+            <Navbar /* history={ history } */ />
             <div className="container mt-2">
                 <Switch>
                     <Route exact path="/marvel" component={ MarvelScreen } />
