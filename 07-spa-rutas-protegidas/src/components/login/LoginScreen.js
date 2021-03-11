@@ -12,13 +12,15 @@ export const LoginScreen = ({ history }) => {
         // No se puede regresar a la pagina anterior porque lo elimina
         // history.replace('/');
 
+        const lastPath = localStorage.getItem('lastPath') || '/';
+
         dispatch({
             type: types.login,
             payload: {
                 name:'Carlos'
             }
         })
-        history.push('/');
+        history.push(lastPath);
     }
 
     return (
