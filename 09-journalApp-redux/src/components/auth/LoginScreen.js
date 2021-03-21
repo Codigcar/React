@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { login } from '../../actions/auth'
+import { login, startLoginEmailPassword } from '../../actions/auth'
 import { useForm } from '../../hooks/useForm'
 import { types } from '../../types/types'
 
@@ -15,6 +15,10 @@ export const LoginScreen = () => {
     
     const { email, password } = formValues;
     
+    // Hook de Redux
+    // Esto es para ejecutar las acciones, la accion de login ubicado en "actions>auth"
+    // Sin este hook no puedes llamar a las acciones
+    // ventaja: hace dispatch de acciones y llamar en cualquier parte
     const dispatch = useDispatch();
 
     const handleLogin = (e) => {
@@ -29,7 +33,13 @@ export const LoginScreen = () => {
         //         }
         //     }
         // );
-        dispatch( login(123123, 'Carlitos') );
+
+
+        // syncrono
+        // dispatch( login(123123, 'Carlitos') );
+
+        // asyncrono
+        dispatch( startLoginEmailPassword(email, password) );
     }
 
     return (
